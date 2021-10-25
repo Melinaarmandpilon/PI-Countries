@@ -35,6 +35,10 @@ module.exports = (sequelize) => {
     },
     population:{
       type: DataTypes.FLOAT
-    }
-  });
+    },
+  },
+  {
+    timestamps:false
+  }
+  );
 };

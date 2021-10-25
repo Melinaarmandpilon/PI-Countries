@@ -17,6 +17,10 @@ module.exports = (sequelize) => {
     },
     difficulty:{
         type: DataTypes.INTEGER,
+        validate:{
+          min:1,
+          max:5
+        },
         allowNull: false
     },
     duration:{
@@ -27,5 +31,9 @@ module.exports = (sequelize) => {
         type:DataTypes.ENUM("Summer", "Autumn","Winter","Spring"),
         allowNull: false
     }
-  });
+  },
+  {
+    timestamps:false //CON ESTO ELIMINO los campos createdAt y updatedAt QUE VIENEN POR DEFAULT
+  }
+  );
 };
