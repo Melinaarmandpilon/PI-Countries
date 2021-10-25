@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       
     },
     difficulty:{
-        type: DataTypes.INTEGER,//ver si uso integer o ENUM ("1","2","3","4","5")
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     duration:{
@@ -26,13 +26,6 @@ module.exports = (sequelize) => {
     season:{
         type:DataTypes.ENUM("Summer", "Autumn","Winter","Spring"),
         allowNull: false
-    },
-    createdInDb:{//esta propiedad me sirve para hacer una distrincion entre lo que me trae la API y la base de datos, 
-        //ya que hace mas facil para traer la actividad turistica creada en la base de datos
-       // esta propiedad solamente la va a tener los creados en la base de datos, los de la API no
-        type:DataTypes.BOOLEAN,
-        allowNull:false,
-        defaultValue:true
     }
   });
 };

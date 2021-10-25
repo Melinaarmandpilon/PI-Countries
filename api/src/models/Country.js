@@ -23,19 +23,18 @@ module.exports = (sequelize) => {
     },
     capital:{
       type: DataTypes.STRING,
-      allowNull:false
+      allowNull:false,
+      defaultValue:"The capital is not found"
     },
     subregion:{
       type: DataTypes.STRING,
-      allowNull:true
+      defaultValue:"The subregion is not found"
     },
     area:{
-      type: DataTypes.FLOAT,
-      allowNull:true
+      type: DataTypes.FLOAT
     },
     population:{
-      type: DataTypes.FLOAT,
-      allowNull:true
+      type: DataTypes.FLOAT
     }
   });
 };
