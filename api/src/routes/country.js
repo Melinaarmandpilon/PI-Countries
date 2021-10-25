@@ -1,40 +1,45 @@
 const { Router } = require("express");
-const { Country,Activity } = require("../db"); //importo el modelo de la base de datos
-
-const axios = require("axios");
+const { Country, Activity } = require("../db"); //importo el modelo de la base de datos
+const { Op } = require("sequelize");
 
 const router = Router();
 
 router.get("/", async (req, res) => {
-  
-//   // let data=  await axios.get("https://restcountries.com/v3/all"); //traer todos los paises, esto me devuelve un arreglo de objetos
-//   // //guardarlos en su propia base de datos
-//   // let serverDb= await data.map(country =>{
-//   //   return { Country.create(
-  // where:
-    //     { id:country.cca3,
-//   //     name:country.common,
-//   //     flag:country.flags[0],
-//   //     continents:country.continents[0],
-//   //     capital: country.capital?.length ? country.capital[0]:"The capital is not found",
-				// subregion: country.subregion ? country.subregion : "The subregion is not found",
-//   //     area:country.area,
-//   //     population:country.population}
-//   //   )
-//   //  
-//   //   }
-//   // })
-
+  try {
+    const { name } = req.query;
+    if (name) {
+      //pregunto si el usuario esta intentando buscar un pais por su nombre pasado como query parameter //la voy a usr para mi barra de busqueda
+      let country = await Country.findAll({
+        //busco todos los paises
+        where: {
+          //donde
+          name: {
+            //el nombre
+            [Op.iLike]: name + "%", //va ignorar miniscula y mayuscula y No necesariamente tiene que ser una matcheo exacto
+          },
+        },
+      });
+      return res.send(country);
+    }
+  } catch (error) {
+    res.status(404).send("Country not found");
+    // console.log(error)
+  }
 });
 
+router.get("/:idPais", async (req, res) => {
+  try {
+    const { idPais } = req.params;
+    const detailCountry = await Country.findByPk(
+      idPais.toUpperCase(),//CONVIERTO A MAYUSCULA
+      {
+        include:Activity
+    });
+    return res.send(detailCountry);
+    
+  } catch (error) {
+    res.status(404).send("Country detail not found")
+  }
+});
 
-// router.get("/{idPais}", async (req, res) => {
-  
-//     const {idPais}=req.params;
-//   const country= await Country.findAll()
-//   return res.send(country);
-//   // const countries= await axios.get("https://restcountries.com/v3/all")
- 
-// });
-
-// module.exports = router;
+module.exports = router;

@@ -10,20 +10,25 @@ router.get("/",async (req,res)=>{
 })
 
 router.post("/",async (req,res)=>{
-    const {id,name,difficulty,duration,season,createdInDb}=req.body;
     try {
+        const {id,name,difficulty,duration,season}=req.body;
         const newActivity=  await Activity.create({
             id,
             name,
             difficulty,
             duration,
-            season,
-            createdInDb
+            season
         })
-         res.send(newActivity)
+        console.log("newActivity",newActivity.toJSON());
+
+        const addActivity=await Country.findByPk(id,)
+        console.log("addActivity",addActivity.toJSON());
+         res.json(await addActivity.addActivity(newActivity.name))
+
     } catch (error) {
         res.send(error)
     }
+    
 })
 
 
