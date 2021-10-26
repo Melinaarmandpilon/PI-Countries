@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {Activity}=require("../db")
+const { Country, Activity,Country_Activity } = require("../db");
 
 
 const router = Router();
@@ -11,9 +11,8 @@ router.get("/",async (req,res)=>{
 
 router.post("/",async (req,res)=>{
     try {
-        const {id,name,difficulty,duration,season}=req.body;
+        const {name,difficulty,duration,season,country}=req.body;
         const newActivity=  await Activity.create({
-            id,
             name,
             difficulty,
             duration,
@@ -21,12 +20,12 @@ router.post("/",async (req,res)=>{
         })
         console.log("newActivity",newActivity.toJSON());
 
-        const addActivity=await Country.findByPk(id,)
-        console.log("addActivity",addActivity.toJSON());
-         res.json(await addActivity.addActivity(newActivity.name))
+        await newActivity.addCountry(country) 
+        res.send(" Se añadió actividad turistica con exito")
 
     } catch (error) {
-        res.send(error)
+        // res.send(error)
+        console.log(`Se produjo el siguiente error ${error}`)
     }
     
 })
