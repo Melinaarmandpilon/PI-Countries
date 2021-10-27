@@ -1,11 +1,15 @@
 import './App.css';
+import {Route} from 'react-router-dom';
+import {Landing,Home} from './Views/index.js';
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <Route exact path="/" component={Landing}/>
+      <Route path="/Home" component={Home}/>
     </div>
   );
 }
 
-export default App;
+
