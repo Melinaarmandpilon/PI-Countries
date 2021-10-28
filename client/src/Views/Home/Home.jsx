@@ -4,8 +4,6 @@ import { Countries, NavBar} from "../../components/index.js";
 
 
 export default function Home() {
-  
-  
   return (
     <div>
       <NavBar />

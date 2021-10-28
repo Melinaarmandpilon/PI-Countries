@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Country({name,flag,continent}) {
+  
     return (
         <div>
             <img src={flag} alt="img not found" width="200px" height="250px"/>
