@@ -1,3 +1,3 @@
-export const SEARCH="SEARCH";
+export const SEARCH_BY_NAME="SEARCH";
 export const GET_COUNTRIES="GET_COUNTRIES"
 

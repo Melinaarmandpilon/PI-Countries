@@ -9,8 +9,8 @@ require('./db.js'); //base de datos
 const server = express();
 
 server.name = 'API';
-
 server.use(cors());
+
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(cookieParser());

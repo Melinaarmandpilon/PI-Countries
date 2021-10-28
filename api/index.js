@@ -16,7 +16,7 @@ conn.sync({ force: true }).then(() => {
           where: {
             id: country.cca3,
             name: country.name.common,
-            flag: country.flags[0],
+            flag: country.flags[1],
             continents: country.continents[0],
             capital: country.capital?.length
               ? country.capital[0]
