@@ -12,6 +12,7 @@ export default function Countries() {
   //para traer los paises cuando el componente se monta, uso el useEffect
   useEffect(() => {
     console.log("Entrando a useEffect");
+    if(allCountries.length===0) //con esta condición hago que se mantenga el filtro realizado una vez que vuelvo a home
     dispatch(getCountries()); //este dispatch es lo mismo que usar el mapDispatchToProps
   }, [dispatch]); //array de dependencia, queda escuchando y cuando alguna de las dependencias cambie volver a ejecutarte
 
@@ -20,7 +21,7 @@ export default function Countries() {
   const [numberPage, setNumberPage] = useState(1);
 
   // 2) Defino la cantidad de CARD COUNTRY que quiero por página
-  const countriesPerPage = 10;
+  const countriesPerPage = 9;
 
   //3) Indice del ultimo pais
   const indexLastCountry = numberPage * countriesPerPage; 
@@ -53,7 +54,7 @@ export default function Countries() {
               <Country
                 name={country.name}
                 flag={country.flag}
-                continent={country.continents}
+                continent={country.continent}
               />
             </NavLink>
           );
