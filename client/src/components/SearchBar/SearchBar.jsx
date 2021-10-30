@@ -8,14 +8,15 @@ export default function SearchBar() {
 
   //controlador de cambios en el esto del input
   const handleChange = (evento) => {
-      evento.preventDefault();
+    evento.preventDefault();
     console.log("Este es mi evento en el input: ", evento)
     setInput(evento.target.value); //seteame el estado con el valor indicado en el input
+    dispatch(searchByName(input))
   };
-
+  
   const handleSubmit = (evento) => {
     evento.preventDefault();
-    dispatch(searchByName(input))
+    setInput("")
   };
 
   return (
@@ -27,6 +28,7 @@ export default function SearchBar() {
           autoComplete="off"
           onChange={handleChange}
           value={input}
+
         />
         <button>Buscar</button>
       </form>
