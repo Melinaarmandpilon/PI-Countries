@@ -7,14 +7,14 @@ import { Pagination} from './../index';
 
 export default function Countries() {
   const dispatch = useDispatch(); //utilizo esta constante para despachar las acciones
-  const allCountries = useSelector((state) => state.filterCountries); //con esto le digo: traeme en la const todo lo que tengas en el estado de filterCountries
-
+  const {countries, filterCountries} = useSelector((state) => state); //con esto le digo: traeme en la const todo lo que tengas en el estado de filterCountries
+  
   //para traer los paises cuando el componente se monta, uso el useEffect
   useEffect(() => {
     console.log("Entrando a useEffect");
-    if(allCountries.length===0) //con esta condición hago que se mantenga el filtro realizado una vez que vuelvo a home
+    if(countries.length===0) //con esta condición hago que solo se monte el componente cuando Countries este en cero
     dispatch(getCountries()); //este dispatch es lo mismo que usar el mapDispatchToProps
-  }, [dispatch]); //array de dependencia, queda escuchando y cuando alguna de las dependencias cambie volver a ejecutarte
+  }, [dispatch, countries.length]); //array de dependencia, queda escuchando y cuando alguna de las dependencias cambie volver a ejecutarte
 
   //-------------PAGINADO-----------------
   // 1)//Defino que la primer página arranque en 1
@@ -31,7 +31,7 @@ export default function Countries() {
 
   //Paises que se van a ver por pagina, 
   //esto me devuelve un arreglo con paises del 0 al 10
-  const currentCountries = allCountries.slice(
+  const currentCountries = filterCountries.slice(
     indexFirstCountry,indexLastCountry
   );
   // indice del arreglo:                            0        1         9
@@ -61,7 +61,7 @@ export default function Countries() {
         })}
       </div>
       <div>
-        <Pagination allCountries={allCountries.length} countriesPerPage={countriesPerPage} paginate={paginate}/>
+        <Pagination allCountries={filterCountries.length} countriesPerPage={countriesPerPage} paginate={paginate}/>
       </div>
     </div>
   );
