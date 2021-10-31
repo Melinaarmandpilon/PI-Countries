@@ -15,6 +15,10 @@ export default function CountryDetail(props) {
     dispatch(getCountryDetail(id));
   }, [dispatch, id]);
 
+  function numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
   return (
     <div>
       <NavBar />
@@ -33,8 +37,8 @@ export default function CountryDetail(props) {
           <h5>Code: {countryDetail.id}</h5>
           <h5>Capital: {countryDetail.capital}</h5>
           <h5>Subregion: {countryDetail.subregion}</h5>
-          <h5>Area: {countryDetail.area} Km2</h5>
-          <h5>Population: {countryDetail.population}</h5>
+          <h5>Area: {numberWithCommas(Number(countryDetail.area))} Km2</h5>
+          <h5>Population: {numberWithCommas(Number(countryDetail.population))} Inhabitants</h5>
           <div>
             {countryDetail.activities?.map((activity) => (
               <div>
