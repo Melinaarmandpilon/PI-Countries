@@ -26,10 +26,17 @@ export default function rootReducer (state=initialState,action){
                     countryDetail:action.payload
                 }
             case FILTER_BY_CONTINENT:
+                if(action.payload==="All"){
+                    return {
+                        ...state,
+                        filterCountries:state.countries
+                    }
+                }else{
                     return{
                         ...state,
                         filterCountries:state.countries.filter(el=>el.continent===action.payload)
                     }
+                }
         default:
             return state;
     }
