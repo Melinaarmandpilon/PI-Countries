@@ -1,7 +1,8 @@
 import './App.css';
 import {Route} from 'react-router-dom';
 import {Landing,Home} from './Views/index.js';
-import {CountryDetail} from './components/index';
+import {CountryDetail,AddActivity} from './components/index';
+
 
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       <Route exact path="/" component={Landing}/>
       <Route exact path="/Home" component={Home}/>
       <Route exact path="/Home/:id" component={CountryDetail}/>
+      <Route exact path="/activity" component={AddActivity}/>
     </div>
   );
 }
