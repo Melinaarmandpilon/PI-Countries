@@ -3,9 +3,11 @@ import React from "react";
 export default function Pagination({ allCountries,countriesPerPage,paginate,}) {
   const pageNumbers = [];
 
-//   console.log("paginate", paginate);
+  // console.log("paginate", paginate);
 
-  for (let i = 1; i < Math.ceil(allCountries / countriesPerPage); i++) {
+  let totalPage=Math.ceil(allCountries / countriesPerPage)
+
+  for (let i = 1; i <  totalPage; i++) {
     pageNumbers.push(i);
   }
 
