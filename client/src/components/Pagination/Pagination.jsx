@@ -12,14 +12,12 @@ export default function Pagination({ allCountries,countriesPerPage,paginate,}) {
   }
 
   return (
-    <nav>
+    <div>
       {pageNumbers?.map((pageNum) => (
-        <div key={pageNum}>
-          <button onClick={e=> paginate(pageNum)}>
+          <button key={pageNum} onClick={e=> paginate(pageNum)}>
             {pageNum}
           </button>
-        </div>
       ))}
-    </nav>
+    </div>
   );
 }

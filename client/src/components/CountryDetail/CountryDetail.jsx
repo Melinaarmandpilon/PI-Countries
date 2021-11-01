@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountryDetail } from "./../../actions/index";
-import { NavBar } from "../index";
+import { ButtonHome } from "..";
 
 export default function CountryDetail(props) {
   console.log("Soy las props de countrydetail: ", props);
@@ -21,7 +21,6 @@ export default function CountryDetail(props) {
 
   return (
     <div>
-      <NavBar />
       <div>
         <section>
           <div>
@@ -37,7 +36,7 @@ export default function CountryDetail(props) {
           <h5>Code: {countryDetail.id}</h5>
           <h5>Capital: {countryDetail.capital}</h5>
           <h5>Subregion: {countryDetail.subregion}</h5>
-          <h5>Area: {numberWithCommas(Number(countryDetail.area))} Km2</h5>
+          <h5>Area: {numberWithCommas(Number(countryDetail.area))} Km<sup>2</sup></h5>
           <h5>Population: {numberWithCommas(Number(countryDetail.population))} Inhabitants</h5>
           <div>
             {countryDetail.activities?.map((activity) => (
@@ -51,6 +50,7 @@ export default function CountryDetail(props) {
           </div>
         </section>
       </div>
+      <ButtonHome/>
     </div>
   );
 }

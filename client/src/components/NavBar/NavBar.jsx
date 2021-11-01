@@ -7,7 +7,6 @@ export default function NavBar() {
     <div>
       <SearchBar />
       <Link to="/activity">Add Activity</Link>
-      <Link to="/Home">Home</Link>
     </div>
   );
 }
