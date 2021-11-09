@@ -1,0 +1,51 @@
+:root{
+  --theme-Detail: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Detail.jpg"); 
+  --theme-Countries: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Countries.jpg"); 
+  --theme-Landing: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Landing.jpg"); 
+  --theme-Activity: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/activity.jpg"); 
+  
+  --primary-color:#2c302d;
+  --negro:#000;
+ 
+  --bg-shape-color:linear-gradient(120deg,  #343A4F, #0F1620) ;
+ 
+  --amarillo: #FFE733;
+  --amarillo3: #f1d609;
+  --gris: #858585;
+  --gris-claro: #B0B4AE;
+  --gris-azulado:#455e71;
+  --text-color:#f8f8f8;
+  --blanco-color:#ffffff;
+  --cardfondo-color:#ffffffda;
+  --gris-oscuro:#2E302D ;
+}
+
+body {
+  background-color: var(--gris-azulado);
+  color: var(--text-color);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  /* min-width: 100vw; */
+  /* display: flex;
+  justify-content: center; */
+    
+}
+
+a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.danger {
+  color: red;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}

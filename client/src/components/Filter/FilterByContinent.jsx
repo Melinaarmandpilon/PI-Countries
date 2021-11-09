@@ -2,12 +2,14 @@ import React from "react";
 // import React , { useState }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByContinent } from "../../actions";
+import styles from "./Filter.module.css"
 
-
-export default function FilterByContinent() {
+export default function FilterByContinent({paginate}) {
+  console.log("paginate",paginate)
 
   //-----------------------CON SELECT-----------------
   const dispatch = useDispatch();
+  // const [nameFilter,setNameFilter]=useState({filtro:"Seleccionar"})
   
   const countries = useSelector((state) => state.countries);
   let arrContinent = countries?.map((cont) => cont.continent); //me retorna un array con todos los continentes por c/u de los paises=250el
@@ -22,9 +24,9 @@ export default function FilterByContinent() {
   };
  
   return (
-    <div>
-      <label>Filter by Continent</label>
-      <select onChange={handleChange}>
+    <div className={styles.container}>
+      <h5>Filter by Continent</h5>
+      <select onChange={handleChange} /* value={nameFilter.filtro} */>
         <option value="All">All</option>
         {uniqueContinent?.map((el, index) => (
           <option value={el} key={index}>
@@ -40,7 +42,7 @@ export default function FilterByContinent() {
   // const dispatch = useDispatch();
   
   // const [filterAccumulation, setFilterAccumulation] = useState([]);
-  // const [checked, setChecked] = useState(false)
+  // // const [checked, setChecked] = useState(false)
 
   //   const countries = useSelector((state) => state.countries);
 
@@ -54,9 +56,11 @@ export default function FilterByContinent() {
   // // };
   // const handleChange=evento=>{
   //   console.log("evento.target.value", evento.target.value);
-  //   setChecked(evento.target.checked)
+  //   // setChecked(evento.target.checked)
   //   console.log("evento.target.checked", evento.target.checked);
-  //   if(evento.target.checked) setFilterAccumulation(filterAccumulation.concat(evento.target.value))
+  //   if(evento.target.checked) 
+  //     setFilterAccumulation(filterAccumulation.concat(evento.target.value))
+
   //   dispatch(filterByContinent(filterAccumulation));
   //   console.log("filterAccumulation",filterAccumulation);
 

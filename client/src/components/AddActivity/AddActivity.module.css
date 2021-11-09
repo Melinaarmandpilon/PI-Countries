@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  background-image: var(--theme-Activity);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.form {
+  /* font-size: 0.9em; */
+  /* font-weight: 700; */
+  height: min-content;
+  border-radius: 1em;
+  width: 600px;
+  color: var(--negro);
+  padding: 40px;
+  margin: 50px auto;
+  background-color: var(--cardfondo-color);
+  box-shadow: 2px 2px 3px var(--amarillo3);
+  border: 1px solid var(--primary-color);
+}
+.formGroup{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form legend{
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.form label {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: var(--negro);
+    font-weight: 700;
+    text-align: left;
+  }
+  .form input {
+    
+    border: 1px solid var(--amarillo);
+    padding: 8px 0.5px;
+    font-size: 1.2em;
+    color: var(--negro);
+    
+    width: 100%;
+    
+  }
+  
+  .form select{
+    /* background: #000!important; */
+    border: 1px solid var(--amarillo);
+    padding: 8px 10px;
+    font-size: 1.2em;
+    color: var(--negro);
+    outline: none;
+    width: 100%;
+    transition: all .15s ease;
+  }
+  
+  .danger {
+    color: #dc3545;
+    font-weight: 700;
+    border: #dc3545;
+  }
+ 
+  .btns{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}

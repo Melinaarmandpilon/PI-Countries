@@ -1,0 +1,34 @@
+.container {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+ 
+  .btn, .navigate {
+    border: none;
+    font-weight: 700;
+    background-color: var(--amarillo);
+    color: var(--negro);
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 2px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .btn:hover,.navigate:hover {
+    background-color: var( --negro);
+    color: var(--amarillo);
+    font-weight: 700;
+  }
+ 
+  .btnselec {
+    background-color: var( --negro);
+    color: var(--amarillo);
+    font-weight: 700;
+    padding: 10px;
+    margin: 2px;
+  }

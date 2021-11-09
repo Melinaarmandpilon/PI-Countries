@@ -1,0 +1,40 @@
+.container{
+  background-image:var(--theme-Detail);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+.section {
+    
+    font-size: 1.1rem;
+    height: auto;
+    width: 30%;
+    border-radius: 1rem;
+    border: 2px ridge var(--amarillo3);
+    background-color:var(--cardfondo-color);
+    box-shadow: 1px 1px 3px  var(--amarillo3);
+    color:var(--negro);
+    padding: 20px;
+    margin: auto;
+  }
+
+  .description{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .section img {
+   width: 55%;
+   height: 65%;
+   border-radius: 10%;
+   filter: brightness(110%);
+ }
+ .section h3{
+   border-bottom: 1px solid var(--primary-color);
+ }
+
+ 

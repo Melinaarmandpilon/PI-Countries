@@ -1,0 +1,53 @@
+.landing {
+    background-image:var(--theme-Landing); 
+    filter:opacity(80%);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    position: relative;
+    filter:sepia(20%)
+   
+}
+   
+.navbar h1 {
+    padding: 10px;
+    margin:0;
+    font-size: 1.2em;
+    font-weight: 800;
+    
+}
+.container{   
+    font-size: 2em;
+    border: 1px ridge var(--blanco-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    height: 95%;
+    color:var(--negro);
+    letter-spacing: 0.2em; /* //espaciado entre letra */
+    -webkit-text-stroke: 1.5px var(--blanco-color);
+    
+}
+
+.btn {
+    background-color: transparent;
+    color:var(--primary-color);
+    padding: 10px 40px;
+    letter-spacing: 0.15em; /* //espaciado entre letras */
+    font-size: 1em;
+    border-radius: 20px;
+    border: 1px ridge var(--negro);
+    cursor: pointer;
+    
+}
+
+.btn:hover{
+    background-color: var(--negro);
+    color:var(--amarillo);
+    /* opacity: 0.75; */
+}

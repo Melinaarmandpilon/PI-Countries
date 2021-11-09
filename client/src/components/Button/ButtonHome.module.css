@@ -1,0 +1,21 @@
+.btn {
+    background-color: transparent;
+    color:var(--negro);
+    padding: 5px 20px;
+    /* letter-spacing: 0.25em; //espaciado entre letras */
+    font-size: 1em;
+    border-radius: 20px;
+    border: 1px ridge var(--primary-color);
+    cursor: pointer;
+    
+}
+
+.btn:hover{
+    background-color: var(--negro);
+    color:var(--amarillo);
+    /* opacity: 0.75; */
+}
+
+.button {
+border:none;
+}

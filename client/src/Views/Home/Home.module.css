@@ -1,0 +1,34 @@
+.container {
+  font-size:1.2rem;
+ 
+  display:grid;
+  min-height: 100vh;
+  grid-template:
+  "navbar  navbar"  55px
+  "filters countries"  auto /
+   250px    auto;
+   background-color:var(--gris-oscuro) ;
+
+}
+.navbar{
+  grid-area:navbar;
+  color:var(--negro);
+  border-bottom: 2px ridge var(--gris-oscuro);
+  background-color: var(--amarillo3);
+}
+
+.filters {
+  padding: 1em;
+  grid-area: filters;
+  border-right: 2px ridge var(--gris-oscuro);
+  color:var(--negro);
+  background-color: var(--amarillo3);
+}
+
+.countries {
+  padding: 1.2em;
+  grid-area: countries;
+  background-image:var(--theme-Countries);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

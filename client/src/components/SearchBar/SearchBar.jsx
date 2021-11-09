@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchByName } from "../../actions";
+import logo from '../../img/search.svg';
+import styles from "./SearchBar.module.css"
 
 export default function SearchBar() {
   const [input, setInput] = useState("");
@@ -21,16 +23,15 @@ export default function SearchBar() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.searchForm} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Search country by name"
           autoComplete="off"
           onChange={handleChange}
           value={input}
-
         />
-        <button>Buscar</button>
+        <button type="submit"><img src={logo} alt="img no found" /></button>
       </form>
     </div>
   );

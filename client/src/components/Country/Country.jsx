@@ -1,12 +1,15 @@
 import React from 'react'
+import styles from "./Country.module.css"
+import { numberWithCommas } from '../utils'
 
-export default function Country({name,flag,continent}) {
+export default function Country({name,flag,continent,population}) {
   
     return (
-        <div>
-            <img src={flag} alt="img not found" width="200px" height="250px"/>
-            <h3>{name}</h3>
-            <h5>{continent}</h5>
+        <div className={styles.container}>
+            <img src={flag} alt="img not found"/>
+            <h4>Name: {name}</h4>
+            <p>Continent: {continent}</p>
+            <p>Population: {numberWithCommas(Number(population))}</p>
         </div>
     )
 }

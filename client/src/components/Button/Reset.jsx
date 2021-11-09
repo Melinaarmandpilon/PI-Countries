@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getCountries } from './../../actions/index';
+import { getCountries } from '../../actions/index';
+import styles from "./ButtonHome.module.css"
 
 export default function Reset() {
     
@@ -12,7 +13,7 @@ export default function Reset() {
 
     return (
         <div>
-            <button onClick={allCountries}>RESET</button>
+            <button className={styles.btn} onClick={allCountries}>RESET</button>
         </div>
     )
 }

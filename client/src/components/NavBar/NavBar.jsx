@@ -1,12 +1,18 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "../NavBar/NavBar.module.css"
 
 export default function NavBar() {
   return (
-    <div>
+    <div className={styles.container}>
+      <h3>PI-Countries-Henry</h3>
+    
       <SearchBar />
-      <Link to="/activity">Add Activity</Link>
+      
+      <NavLink to="/activity" className={styles.activity} >Add Activity</NavLink> 
+  
+     
     </div>
   );
 }

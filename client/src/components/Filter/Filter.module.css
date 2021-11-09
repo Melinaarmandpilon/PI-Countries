@@ -1,0 +1,13 @@
+
+.container{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container select{
+    padding: 8px 10px;
+    font-size: 1em;
+    color: var(--primary-color);
+    border:var(--primary-color);
+}

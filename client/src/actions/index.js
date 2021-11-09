@@ -1,4 +1,4 @@
-import { FILTER_BY_CONTINENT, GET_COUNTRIES, GET_COUNTRY_DETAIL, SEARCH_BY_NAME } from "./types";
+import {  FILTER_BY_ACTIVITY,  FILTER_BY_CONTINENT, GET_ACTIVITIES, GET_COUNTRIES, GET_COUNTRY_DETAIL, SEARCH_BY_NAME, SORT } from "./types";
 import axios from "axios";
 
 export function getCountries() {
@@ -13,6 +13,33 @@ export function getCountries() {
     }
   };
 }
+export  function postActivity(input){
+  console.log("SOY INPUT EN ACTION POST:",input)
+  return async function (){
+    try {
+      let res=await axios.post("http://localhost:3001/activity",input)
+      console.log("SOY res.data EN postActivity:",res.data)
+      if(res) alert(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+export function getActivities(){
+  return async function (dispatch){
+    try {
+      let res=await axios.get(`http://localhost:3001/activity`)
+      console.log("res.data en ACTION filterByActivities",res.data)
+      return dispatch({
+        type:GET_ACTIVITIES,
+        payload:res.data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
 
 export function searchByName(search) {
   return function (dispatch) {
@@ -44,9 +71,27 @@ export function getCountryDetail(id) {
 }
 
 export function filterByContinent(payload){
+  console.log("payload en ACTION filterByContinent",payload)
   return ({
     type:FILTER_BY_CONTINENT,
-    payload
+    payload //[america,Asia]
   })
+}
 
+export function filterActivities(payload){
+  console.log("payload en ACTION filterActivities",payload)
+  return ({
+    type:FILTER_BY_ACTIVITY,
+    payload 
+  })
+}
+
+
+
+export function sortBy(payload){
+  console.log("Soy payload en ACTION sortby: ",payload)
+  return{
+    type:SORT,
+    payload //-->es igual a e.target.value, toma el valor del input cuando el usuario hace click
+  }
 }

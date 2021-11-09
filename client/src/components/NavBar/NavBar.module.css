@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    color: var(--negro);
+    font-size: 1.5rem;
+    padding: 0 15px;
+    font-weight: 700;
+    border:tomato;
+   
+}
+.activity:hover{
+    font-size: 1em;
+    color: var(--negro);
+    border:var(--negro);
+}

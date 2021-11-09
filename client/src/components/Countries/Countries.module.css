@@ -1,0 +1,35 @@
+.container{
+  display: grid;
+  min-height: 100%;
+  grid-template:
+  "countries" auto
+  "pagination" 55px;
+}
+
+.countries{
+  display: grid;
+  justify-content: center;
+  align-content: space-between;
+  grid-area: countries;
+  /* width: 100%; */
+  grid-template-columns: repeat(3, minmax(230px, 250px));
+  align-items: center;
+  gap: 1em;
+  padding: 20px;
+}
+
+@media (min-width: 900px){
+  .countries {
+    grid-area: countries;
+    /* width: 100%; */
+    grid-template-columns: repeat(3, minmax(200px, 300px)) ;
+    justify-content: center;
+    gap: 2em;
+    align-items: center; 
+  }
+}
+
+.pagination{
+  grid-area: pagination;
+  padding: 20px;
+}

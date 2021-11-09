@@ -4,9 +4,15 @@ import Countries from "./Countries/Countries";
 import Country from './Country/Country';
 import Pagination from './Pagination/Pagination';
 import CountryDetail from './CountryDetail/CountryDetail';
-import Continent from './Filter/Continent';
-import Reset from './Reset/Reset';
+import Reset from './Button/Reset';
 import AddActivity from './AddActivity/AddActivity';
+import AlphaSort from './Filter/AlphaSort';
+import PopulationSort from './Filter/PopulationSort';
+import FilterByContinent from './Filter/FilterByContinent';
+import FilterByActivity from './Filter/FilterByActivity';
+import ButtonHome from './Button/ButtonHome';
+
+import { validate } from './AddActivity/validate';
 
 export{
     NavBar,
@@ -15,7 +21,13 @@ export{
     Country,
     Pagination,
     CountryDetail,
-    Continent,
+    FilterByContinent,
     Reset,
     AddActivity,
+    AlphaSort,
+    PopulationSort,
+    FilterByActivity,
+    ButtonHome, 
+    validate,
+    
 }
