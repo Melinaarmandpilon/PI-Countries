@@ -5,8 +5,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('activity', {
     id:{
-        type:DataTypes.UUID,//UUID:secuencia aleatoria de numeros
-        defaultValue:DataTypes.UUIDV4, //para que sequelize genere los ID automáticamente
+        // type:DataTypes.UUID,//UUID:secuencia aleatoria de numeros
+        // defaultValue:DataTypes.UUIDV4, //para que sequelize genere los ID automáticamente
+        type:DataTypes.INTEGER,
+        autoIncrement:true,
         allowNull:true,
         primaryKey:true
     },
