@@ -38,7 +38,7 @@ export function getActivities() {
   return async function (dispatch) {
     try {
       let res = await axios.get(`http://localhost:3001/activity`);
-      console.log("res.data en ACTION filterByActivities", res.data);
+      // console.log("res.data en ACTION filterByActivities", res.data);
       return dispatch({
         type: GET_ACTIVITIES,
         payload: res.data,
@@ -50,7 +50,7 @@ export function getActivities() {
 }
 
 export function searchByName(name) {
-  console.log("name en search",name)
+  // console.log("name en search", name);
   return function (dispatch) {
     axios(`http://localhost:3001/countries?name=${name}`)
       .then((info) => {
@@ -60,32 +60,16 @@ export function searchByName(name) {
         });
       })
       .catch((error) => {
-        // alert("I'm sorry, country not found, search with another name!");
-  
         console.log(error);
       });
   };
 }
-// export function searchByName(name) {
-
-//   return async function (dispatch) {
-//     try {
-//       let info = await axios(`http://localhost:3001/countries?name=${name}`);
-//       console.log("info.data search",info.data)
-//       return dispatch({
-//         type: SEARCH_BY_NAME,
-//         payload: info.data,
-//       });
-//     } catch (error) {
-//       alert("Pais no encontrado!");
-//     }
-//   };
-// }
 
 export function getCountryDetail(id) {
   return async function (dispatch) {
     try {
       let info = await axios.get(`http://localhost:3001/countries/${id}`);
+      // console.log("info.data detail",info.data)
       return dispatch({
         type: GET_COUNTRY_DETAIL,
         payload: info.data,
@@ -97,7 +81,7 @@ export function getCountryDetail(id) {
 }
 
 export function filterByContinent(payload) {
-  console.log("payload en ACTION filterByContinent", payload);
+  // console.log("payload en ACTION filterByContinent", payload);
   return {
     type: FILTER_BY_CONTINENT,
     payload, //[america,Asia]
@@ -105,7 +89,7 @@ export function filterByContinent(payload) {
 }
 
 export function filterActivities(payload) {
-  console.log("payload en ACTION filterActivities", payload);
+  // console.log("payload en ACTION filterActivities", payload);
   return {
     type: FILTER_BY_ACTIVITY,
     payload,
@@ -113,10 +97,10 @@ export function filterActivities(payload) {
 }
 
 export function sortBy(payload) {
-  console.log("Soy payload en ACTION sortby: ", payload);
+  // console.log("Soy payload en ACTION sortby: ", payload);
   return {
     type: SORT,
-    payload, //-->es igual a e.target.value, toma el valor del input cuando el usuario hace click
+    payload,
   };
 }
 

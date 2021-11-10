@@ -33,3 +33,15 @@
   grid-area: pagination;
   padding: 20px;
 }
+
+.error{
+  background: #ff4040;
+  font-weight: 700; 
+  color: var(--blanco-color);
+  border-radius: 10px;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -14,6 +14,7 @@ import ButtonHome from './Button/ButtonHome';
 
 import { validate } from './AddActivity/validate';
 
+
 export{
     NavBar,
     Searchbar,

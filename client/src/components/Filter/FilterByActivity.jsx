@@ -15,7 +15,7 @@ export default function FilterByActivity() {
   let arrAct = activities?.map((act) => act.name);
 
   const handleChange = (e) => {
-    console.log("e.target.value", e.target.value);
+    // console.log("e.target.value", e.target.value);
     dispatch(filterActivities(e.target.value));
     dispatch(setCurrentPage(1))
   };

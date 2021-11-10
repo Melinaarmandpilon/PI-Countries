@@ -38,27 +38,24 @@ export default function rootReducer(state = initialState, action) {
       };
     case FILTER_BY_CONTINENT:
       if (action.payload === "All") {
-        // console.log("Filter FILTER_BY_CONTINENT", action.payload);
         return {
           ...state,
           filterCountries: state.countries,
         };
       } else {
-        // console.log("Filter FILTER_BY_CONTINENT", action.payload);
         return {
           ...state,
           filterCountries:state.countries.filter(el=>action.payload.includes(el.continent))
-          // filterCountries: state.countries.filter((el) => el.continent === action.payload
+          
         };
       }
       case PAGINATE:
-        console.log("action.payload en reducer PAGINATE",action.payload)
         return{
           ...state,
           currentPage:action.payload
         }
       case GET_ACTIVITIES:
-        console.log("REDUCER get activity",action.payload)
+        // console.log("REDUCER get activity",action.payload)
         return {
           ...state,
           activities:action.payload
@@ -76,7 +73,7 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           filterCountries: state.filterCountries.sort(
             (a, b) => a.population - b.population
-          ), //de forma ascendente
+          ), 
         };
       }
       if (action.payload === "Population Desc.") {

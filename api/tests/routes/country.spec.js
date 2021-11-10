@@ -28,7 +28,7 @@ describe("Country routes", () => {
   describe("GET /countries", () => {
     it("should get 200", () => agent.get("/countries").expect(200));
     it("Espera que sea un html", () => {
-      agent.get("/countries").expect("Content-Type", /html/);
+      agent.get("/countries").expect("Content-Type", /json/);
     });
   });
   
@@ -42,15 +42,15 @@ describe("Country routes", () => {
          agent.get("/countries/ARG").expect(200);
       });
     });
-    it("espera que sea html", function () {
+    it("espera que sea json", function () {
       return agent.get("/countries/ARG").expect("Content-Type", /json/);
     });
   });
 
   describe("GET /activity", () => {
     it("should get 200", () => agent.get("/activity").expect(200));
-    it("Espera que sea un html", () => {
-      agent.get("/activity").expect("Content-Type", /html/);
+    it("Espera que sea un json", () => {
+      agent.get("/activity").expect("Content-Type", /json/);
     });
   });
   describe;

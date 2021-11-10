@@ -48,7 +48,7 @@ export default function Countries() {
                   <Country
                     name={country.name}
                     flag={country.flag}
-                    continent={country.continent}
+                    continent={country.continent}            
                     population={country.population}
                   />
                 </NavLink>
@@ -57,7 +57,7 @@ export default function Countries() {
           })}
         </div>
       ) : (
-        <div>pais no encontrado</div>
+        <div className={styles.error}>I'm sorry, country not found, search with another name!</div>
       )}
 
       <div className={styles.pagination}>

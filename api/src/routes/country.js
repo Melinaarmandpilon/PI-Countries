@@ -4,33 +4,16 @@ const { Op } = require("sequelize");
 
 const router = Router();
 
+
+
 router.get("/", async (req, res) => {
   const { name } = req.query;
 
-  // if (name){
-  //   try {
-  //     let country=await Country.findAll({
-  //       where:{
-  //         name:{
-  //           [OpiLike]:name+"%",
-  //         }
-  //       },
-  //       include:Activity,
-  //       order:[["name","ASC"]]
-
-  //     })
-  //   } catch (error) {
-  //     res.status(404).send("Country not found");
-  //   }
-  // }
-
-
-
   try {
     if (name) {
-      //pregunto si el usuario esta intentando buscar un pais por su nombre pasado como query parameter //la voy a usr para mi barra de busqueda
+      //pregunto si el usuario esta intentando buscar un pais por su nombre pasado como query parameter 
       let country = await Country.findAll({
-        include: Activity, //ver si necesito que vaya!!!!!
+        include: Activity, 
         where: {
          
           name: {
@@ -54,6 +37,7 @@ router.get("/", async (req, res) => {
     res.status(404).send("Country not found");
   }
 });
+
 
 router.get("/:idPais", async (req, res) => {
   try {

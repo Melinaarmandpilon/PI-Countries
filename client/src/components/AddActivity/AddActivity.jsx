@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { /* getActivities, getCountries, */ postActivity } from "../../actions";
+import { postActivity } from "../../actions";
 import { ButtonHome, validate } from "../index";
 import styles from "./AddActivity.module.css";
 import s from "../Button/ButtonHome.module.css";
 
 export default function AddActivity() {
   const countries = useSelector((state) => state.countries);
+
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
@@ -43,7 +44,7 @@ export default function AddActivity() {
 
   const handleclick = (e) => {
     e.preventDefault();
-    console.log("input en handleclick", input);
+    // console.log("input en handleclick", input);
     dispatch(postActivity(input));
     setInput({
       name: "",
@@ -54,13 +55,7 @@ export default function AddActivity() {
     })
   };
 
-  // const handleDelete=(country)=> {
-  //   setInput({
-  //       ...input,
-  //       countries: input.countries.filter(el => el !==country)
-  //   })
-  // }
-
+ 
   return (
     <div className={styles.container}>
       <form className={styles.form}>
@@ -145,13 +140,7 @@ export default function AddActivity() {
                   </option>
                 ))}
               </select>
-              {/* {input.countries.map(country=>
-                <div className={styles.remove}>
-                  <h6>{country}</h6>
-                  <button className={styles.btnremove} id={country} onClick={()=>handleDelete(country)}>x</button>
-                </div>
-                )
-              } */}
+             
               <div>{input.countries.join(" ")}</div>
               {error.countries && (
                 <p className={styles.danger}>{error.countries}</p>

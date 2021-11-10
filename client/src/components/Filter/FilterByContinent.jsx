@@ -12,7 +12,7 @@ export default function FilterByContinent() {
   let arrContinent = countries?.map((cont) => cont.continent); //me retorna un array con todos los continentes por c/u de los paises=250el
   let uniqueContinent = [...new Set(arrContinent)];
   
-  console.log("uniqueContinent", uniqueContinent);
+  // console.log("uniqueContinent", uniqueContinent);
   
   const handleChange = (evento) => {
     dispatch(filterByContinent(evento.target.value));

@@ -1,6 +1,6 @@
 
 export function validate(input) {
-    console.log("input que llega a VALIDATE:", input);
+    // console.log("input que llega a VALIDATE:", input);
     let error = {};
     if (!input.name) {
       error.name = "Name is requerid";
@@ -23,6 +23,6 @@ export function validate(input) {
     if(input.countries.length<=0){
       error.countries="Select at least one country"
     }
-    console.log("error en validate:", error);
+    // console.log("error en validate:", error);
     return error;
   }

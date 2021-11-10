@@ -29,7 +29,6 @@ conn.sync({ force: true }).then(() => {
           },
         });
       } catch (error) {
-        //   res.status(404).send(error)
         console.log(error);
       }
     });

@@ -9,14 +9,17 @@ import st from "../Button/ButtonHome.module.css";
 import { NavLink } from "react-router-dom";
 
 export default function CountryDetail(props) {
-  console.log("Soy las props de countrydetail: ", props);
+  // console.log("Soy las props de countrydetail: ", props);
   const id = props.match.params.id;
+
   const dispatch = useDispatch();
+
   const countryDetail = useSelector((state) => state.countryDetail);
-  console.log("Soy countryDetail de detail: ", countryDetail);
+  
+  // console.log("Soy countryDetail de detail: ", countryDetail);
 
   useEffect(() => {
-    console.log(" se monta componete");
+    // console.log(" se monta componete");
     dispatch(getCountryDetail(id));
   }, [dispatch, id]);
 
@@ -36,9 +39,10 @@ export default function CountryDetail(props) {
         </p>
         <p>Population: {numberWithCommas(Number(countryDetail.population))}</p>
         {/* RENDERIZADO DE ACTIVIDADES */}
+
         <div>
           <h3>Data Activity</h3>
-          {countryDetail.activities.length?countryDetail.activities?.map((activity) => (
+          {countryDetail.activities?.length?countryDetail.activities.map((activity) => (
             <div>
               <h4>
                 {" "}
