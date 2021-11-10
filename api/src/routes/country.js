@@ -7,19 +7,42 @@ const router = Router();
 router.get("/", async (req, res) => {
   const { name } = req.query;
 
+  // if (name){
+  //   try {
+  //     let country=await Country.findAll({
+  //       where:{
+  //         name:{
+  //           [OpiLike]:name+"%",
+  //         }
+  //       },
+  //       include:Activity,
+  //       order:[["name","ASC"]]
+
+  //     })
+  //   } catch (error) {
+  //     res.status(404).send("Country not found");
+  //   }
+  // }
+
+
+
   try {
     if (name) {
       //pregunto si el usuario esta intentando buscar un pais por su nombre pasado como query parameter //la voy a usr para mi barra de busqueda
       let country = await Country.findAll({
         include: Activity, //ver si necesito que vaya!!!!!
         where: {
+         
           name: {
-            [Op.iLike]: name + "%",
+            [Op.iLike]:name + "%",
           },
+          
         },
         order: [["name", "ASC"]],
       });
       return res.send(country);
+     
+      
     } else if (!name) {
       let country = await Country.findAll({
         include: Activity,
@@ -29,7 +52,6 @@ router.get("/", async (req, res) => {
     }
   } catch (error) {
     res.status(404).send("Country not found");
-    // console.log(error)
   }
 });
 

@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { Country, Activity,Country_Activity } = require("../db");
+const { route } = require('./country');
 
 
 const router = Router();
@@ -8,6 +9,9 @@ router.get("/",async (req,res)=>{
     const findActivity= await Activity.findAll()
     res.send(findActivity)
 })
+// router.put("/PUT", (req,res)=>{
+//  res.send("estoy en PUT")
+// })
 
 router.post("/",async (req,res)=>{
     try {
@@ -18,7 +22,7 @@ router.post("/",async (req,res)=>{
             duration,
             season
         })
-        console.log("newActivity",newActivity.toJSON());
+        // console.log("newActivity",newActivity.toJSON());
 
         await newActivity.addCountry(countries) 
         res.send(" Se añadió actividad turistica con exito")
@@ -29,6 +33,7 @@ router.post("/",async (req,res)=>{
     }
     
 })
+
 
 
 module.exports = router;

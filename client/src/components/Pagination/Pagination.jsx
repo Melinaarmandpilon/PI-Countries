@@ -1,27 +1,51 @@
 import React from "react";
-import styles from "./Pagination.module.css"
+import styles from "./Pagination.module.css";
 
-export default function Pagination({ allCountries,countriesPerPage,paginate,numberPage}) {
+export default function Pagination({
+  allCountries,
+  countriesPerPage,
+  paginate,
+  currentPage,
+}) {
   const pageNumbers = [];
 
-  
-  let totalPage=Math.ceil(allCountries / countriesPerPage)
-  // console.log("totalPage", totalPage);
+  let totalPage = Math.ceil(allCountries / countriesPerPage);
 
-  for (let i = 1; i <=  totalPage; i++) {
+  for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
-
+ 
   return (
     <div className={styles.container}>
-        {pageNumbers && numberPage > 1 ? < button className={styles.navigate} onClick={() => paginate(numberPage -1)}> Prev. </button> : null}
-     
+      {pageNumbers && currentPage > 1 ? (
+        <button
+          className={styles.navigate}
+          onClick={() => paginate(currentPage - 1)}
+        >
+          {" "}
+          Prev.{" "}
+        </button>
+      ) : null}
+
       {pageNumbers?.map((pageNum) => (
-          <button className={numberPage===pageNum?styles.btnselec:styles.btn} key={pageNum} onClick={()=> paginate(pageNum)}>
-            {pageNum}
-          </button>
+        <button
+          className={currentPage === pageNum ? styles.btnselec : styles.btn}
+          key={pageNum}
+          onClick={() => paginate(pageNum)}
+        >
+          {pageNum}
+        </button>
       ))}
-       {pageNumbers && numberPage <= pageNumbers.length -1 ? <button className={styles.navigate} onClick={() => paginate(numberPage + 1)}> Next </button> : null}
+
+      {pageNumbers && currentPage <= pageNumbers.length - 1 ? (
+        <button
+          className={styles.navigate}
+          onClick={() => paginate(currentPage + 1)}
+        >
+          {" "}
+          Next{" "}
+        </button>
+      ) : null}
     </div>
   );
 }

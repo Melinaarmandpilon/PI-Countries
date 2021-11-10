@@ -4,6 +4,9 @@ import { getCountryDetail } from "./../../actions/index";
 import { ButtonHome } from "..";
 import { numberWithCommas } from "../utils";
 import styles from "./CountryDetail.module.css";
+import s from "../AddActivity/AddActivity.module.css";
+import st from "../Button/ButtonHome.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function CountryDetail(props) {
   console.log("Soy las props de countrydetail: ", props);
@@ -35,16 +38,26 @@ export default function CountryDetail(props) {
         {/* RENDERIZADO DE ACTIVIDADES */}
         <div>
           <h3>Data Activity</h3>
-          {countryDetail.activities?.map((activity) => (
+          {countryDetail.activities.length?countryDetail.activities?.map((activity) => (
             <div>
-              <h4> {activity.name.charAt(0).toUpperCase()+ activity.name.slice(1).toLowerCase()}</h4>
+              <h4>
+                {" "}
+                {activity.name.charAt(0).toUpperCase() +
+                  activity.name.slice(1).toLowerCase()}
+              </h4>
               <p>Difficulty: {activity.difficulty}</p>
               <p>Duration: {activity.duration} minutes</p>
               <p>Season: {activity.season}</p>
             </div>
-          ))}
+          )):<p>It has no tourist activities assigned</p>}
         </div>
-      <ButtonHome />
+
+        <div className={s.btns}>
+          <ButtonHome />
+          <NavLink to="/activity" className={st.btn}>
+            Add Activity
+          </NavLink>
+        </div>
       </div>
     </div>
   );

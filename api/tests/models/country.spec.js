@@ -22,7 +22,7 @@ describe('Country model', () => {
     describe("Required fields",()=>{
       
       it('Should throw an error if a required field is null',done=>{//Debería arrojar un error si un campo obligatorio es nulo
-        Country.create({
+        Country.findOrCreate({
           id:"ARG",
           name:"Argentina",
           capital:"Buenos Aires",

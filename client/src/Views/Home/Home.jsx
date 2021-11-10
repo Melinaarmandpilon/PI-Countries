@@ -19,13 +19,14 @@ export default function Home() {
       </nav>
       <section className={styles.filters}>
         <AlphaSort/>
-        <PopulationSort />
+        <PopulationSort  />
         <FilterByContinent />
         <FilterByActivity />
         <Reset />
       </section>
       <section className={styles.countries}>
         <Countries />
+        
       </section>
     </div>
   );

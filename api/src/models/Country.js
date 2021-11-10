@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('country', {
     id:{ 
-      type: DataTypes.CHAR(3),//codigo de 3 letras -->revisar
+      type: DataTypes.CHAR(3),
       primaryKey:true,
       allowNull:false,
     },

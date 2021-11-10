@@ -4,6 +4,7 @@ import {
   GET_ACTIVITIES,
   GET_COUNTRIES,
   GET_COUNTRY_DETAIL,
+  PAGINATE,
   SEARCH_BY_NAME,
   SORT,
 } from "../actions/types";
@@ -12,7 +13,8 @@ const initialState = {
   countries: [],
   filterCountries: [],
   countryDetail: [],
-  activities:[]
+  activities:[],
+  currentPage:Number("1"),
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -20,9 +22,9 @@ export default function rootReducer(state = initialState, action) {
     case GET_COUNTRIES:
       return {
         ...state,
-        countries: action.payload, //a mi estado q' en un principio es un [] manda todo lo que te envia la acción getCountries
-        filterCountries: action.payload, //cuando traigo todos los paises modifico este estado también con la misma info
-        //que el anterior, luego utilizo esto para los filtros
+        countries: action.payload, 
+        filterCountries: action.payload, 
+       
       };
     case SEARCH_BY_NAME:
       return {
@@ -42,13 +44,19 @@ export default function rootReducer(state = initialState, action) {
           filterCountries: state.countries,
         };
       } else {
-        console.log("Filter FILTER_BY_CONTINENT", action.payload);
+        // console.log("Filter FILTER_BY_CONTINENT", action.payload);
         return {
           ...state,
           filterCountries:state.countries.filter(el=>action.payload.includes(el.continent))
           // filterCountries: state.countries.filter((el) => el.continent === action.payload
         };
       }
+      case PAGINATE:
+        console.log("action.payload en reducer PAGINATE",action.payload)
+        return{
+          ...state,
+          currentPage:action.payload
+        }
       case GET_ACTIVITIES:
         console.log("REDUCER get activity",action.payload)
         return {
