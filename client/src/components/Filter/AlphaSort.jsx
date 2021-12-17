@@ -15,9 +15,9 @@ export default function AlphaSort() {
         <div className={styles.container}>
             <h5>Order by Alphabetically</h5>
             <select onChange={handleChange}>
-                <option>Seleccionar</option> 
-                <option value="ASC">Ordenar de A a Z</option> 
-                <option value="DESC">Ordenar de Z a A</option>
+                <option>Select</option> 
+                <option value="ASC">Order from A to Z</option> 
+                <option value="DESC">Order from Z to A</option>
             </select>
         </div>
     )

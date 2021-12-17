@@ -81,7 +81,7 @@ export default function AddActivity() {
               onChange={handleChange}
               name="difficulty"
             >
-              {["Seleccionar", 1, 2, 3, 4, 5].map((el) => (
+              {["Select", 1, 2, 3, 4, 5].map((el) => (
                 <option key={el} value={el}>
                   {el}
                 </option>
@@ -110,7 +110,7 @@ export default function AddActivity() {
               onChange={handleChange}
               name="season"
             >
-              {["Seleccionar", "Summer", "Autumn", "Winter", "Spring"].map(
+              {["Select", "Summer", "Autumn", "Winter", "Spring"].map(
                 (el) => (
                   <option key={el} value={el}>
                     {el}
@@ -122,14 +122,14 @@ export default function AddActivity() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Seleccionar Countries: </label>
+            <label>Select Countries: </label>
             <div>
               <select
                 className={error.countries && styles.danger}
                 name="countries"
                 onChange={handleChange}
               >
-                <option name="Seleccionar">Seleccionar</option>
+                <option name="Select">Select</option>
                 {countries.map((country) => (
                   <option
                     key={country.id}

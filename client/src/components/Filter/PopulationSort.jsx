@@ -18,7 +18,7 @@ export default function PopulationSort() {
     <div className={styles.container}>
       <h5>Order by Population</h5>
       <select  onChange={handleChange}>
-        <option name="Seleccionar">Seleccionar</option>
+        <option name="Select">Select</option>
         <option name="Population Asc." value="Population Asc.">
           Population Asc.
         </option>

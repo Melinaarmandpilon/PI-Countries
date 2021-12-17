@@ -9,7 +9,7 @@
     border-radius: 1rem;
     /* word-wrap: break-word; */
     border: 1px ridge var(--amarillo3);
-    background-color: var(--blanco-color);
+    background-color: var(--cardfondo-color);
     /* background-clip: border-box; */
     box-shadow: 1px 1px 3px  var(--amarillo3);
     
@@ -18,12 +18,13 @@
   .container:hover {
     
     border: 2px ridge var(--orange);
-    /* transition-duration: 5s; */
+    
   }
   
   .container img {
      width: 85%;
     height: 50%;
+    border:0.5px solid var(--gris-claro);
     border-radius: 10%;
     filter: brightness(110%);
   }

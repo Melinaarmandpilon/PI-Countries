@@ -13,17 +13,16 @@ export default function SearchBar() {
   //controlador de cambios en el esto del input
   const handleChange = (evento) => {
     evento.preventDefault();
-    
     setInput(evento.target.value); //seteame el estado con el valor indicado en el input
     
+    dispatch(searchByName(evento.target.value))
+    dispatch(setCurrentPage(1))
   };
   
   const handleSubmit = (evento) => {
     evento.preventDefault();
-    dispatch(searchByName(input))
     setInput("")
     
-    dispatch(setCurrentPage(1))
     
   };
   
@@ -35,8 +34,8 @@ export default function SearchBar() {
           type="text"
           placeholder="Search country by name"
           autoComplete="off"
-          onChange={handleChange}
           value={input}
+          onChange={handleChange}
         />
         <button type="submit"><img src={logo} alt="img no found" /></button>
       </form>

@@ -24,7 +24,7 @@ export default function FilterByActivity() {
     <div className={styles.container}>
       <h5>Filter by Activity</h5>
       <select onChange={handleChange}>
-        <option>Seleccionar</option>
+        <option>Select</option>
         {arrAct?.map((act) => (
           <option key={act} value={act}>
             {act.charAt(0).toUpperCase()+ act.slice(1).toLowerCase()}

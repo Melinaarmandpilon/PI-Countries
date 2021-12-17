@@ -10,7 +10,7 @@ router.get("/",async (req,res)=>{
     res.send(findActivity)
 })
 
-router.post("/",async (req,res)=>{
+router.post("/",async (req,res, next)=>{
     try {
         const {name,difficulty,duration,season,countries}=req.body;
 
@@ -23,11 +23,10 @@ router.post("/",async (req,res)=>{
        
         await newActivity.addCountry(countries) //countries es el id del pais
         
-        res.send(" Se añadió actividad turistica con exito")
+        res.send("Tourist activity added successfully")
 
     } catch (error) {
-        
-        console.log(`Se produjo el siguiente error ${error}`)
+        next (error)
     }
     
 })
