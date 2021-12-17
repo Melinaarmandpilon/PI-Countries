@@ -13,7 +13,7 @@ import axios from "axios";
 export function getCountries() {
   return async function (dispatch) {
     try {
-      const resDbCountries = await axios.get("http://localhost:3001/countries");
+      const resDbCountries = await axios.get("/countries");
       const data = resDbCountries.data;
       // console.log("QUE ME TRAE MI BASE DE DATOS", data);
       return dispatch({ type: GET_COUNTRIES, payload: data });
@@ -26,7 +26,7 @@ export function postActivity(input) {
   // console.log("SOY INPUT EN ACTION POST:", input);
   return async function () {
     try {
-      let res = await axios.post("http://localhost:3001/activity", input);
+      let res = await axios.post("/activity", input);
       // console.log("SOY res.data EN postActivity:", res.data);
       if (res) alert(res.data);
     } catch (error) {
@@ -37,7 +37,7 @@ export function postActivity(input) {
 export function getActivities() {
   return async function (dispatch) {
     try {
-      let res = await axios.get(`http://localhost:3001/activity`);
+      let res = await axios.get(`/activity`);
       // console.log("res.data en ACTION filterByActivities", res.data);
       return dispatch({
         type: GET_ACTIVITIES,
@@ -52,7 +52,7 @@ export function getActivities() {
 export function searchByName(name) {
   // console.log("name en search", name);
   return function (dispatch) {
-    axios(`http://localhost:3001/countries?name=${name}`)
+    axios(`/countries?name=${name}`)
       .then((info) => {
         dispatch({
           type: SEARCH_BY_NAME,
@@ -68,7 +68,7 @@ export function searchByName(name) {
 export function getCountryDetail(id) {
   return async function (dispatch) {
     try {
-      let info = await axios.get(`http://localhost:3001/countries/${id}`);
+      let info = await axios.get(`/countries/${id}`);
       // console.log("info.data detail",info.data)
       return dispatch({
         type: GET_COUNTRY_DETAIL,
