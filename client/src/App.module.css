@@ -1,8 +1,8 @@
 :root{
   --theme-Detail: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Detail.jpg"); 
   --theme-Countries: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Countries.jpg"); 
-  --theme-Landing: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Landing.jpg"); 
-  --theme-Activity: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/activity.jpg"); 
+  --theme-Landing: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/Landing-min.jpg"); 
+  --theme-Activity: linear-gradient(-226deg, #7085b6bb 0%, #87a6d983 0%, #ffffff8c 0%), url("../src/img/activity-min.jpg"); 
   
   --primary-color:#2c302d;
   --negro:#000;

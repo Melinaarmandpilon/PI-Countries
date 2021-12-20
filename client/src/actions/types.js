@@ -6,4 +6,5 @@ export const FILTER_BY_CONTINENT="FILTER_BY_CONTINENT"
 export const FILTER_BY_ACTIVITY="FILTER_BY_ACTIVITY"
 export const SORT="SORT"
 export const PAGINATE="PAGINATE"
+export const CLEAN="CLEAN"
 

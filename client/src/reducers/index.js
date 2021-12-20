@@ -7,14 +7,15 @@ import {
   PAGINATE,
   SEARCH_BY_NAME,
   SORT,
+  CLEAN,
 } from "../actions/types";
 
 const initialState = {
   countries: [],
   filterCountries: [],
   countryDetail: [],
-  activities:[],
-  currentPage:Number("1"),
+  activities: [],
+  currentPage: Number("1"),
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -22,9 +23,8 @@ export default function rootReducer(state = initialState, action) {
     case GET_COUNTRIES:
       return {
         ...state,
-        countries: action.payload, 
-        filterCountries: action.payload, 
-       
+        countries: action.payload,
+        filterCountries: action.payload,
       };
     case SEARCH_BY_NAME:
       return {
@@ -45,27 +45,30 @@ export default function rootReducer(state = initialState, action) {
       } else {
         return {
           ...state,
-          filterCountries:state.countries.filter(el=>action.payload.includes(el.continent))
-          
+          filterCountries: state.countries.filter((el) =>
+            action.payload.includes(el.continent)
+          ),
         };
       }
-      case PAGINATE:
-        return{
-          ...state,
-          currentPage:action.payload
-        }
-      case GET_ACTIVITIES:
-        // console.log("REDUCER get activity",action.payload)
-        return {
-          ...state,
-          activities:action.payload
-        };
-        case FILTER_BY_ACTIVITY:
-          console.log("REDUCER FILTER_BY_ACTIVITY",action.payload)
-          return{
-            ...state,
-            filterCountries:state.countries.filter(el => el.activities.map(e=>e.name).includes(action.payload))
-          } 
+    case PAGINATE:
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
+    case GET_ACTIVITIES:
+      // console.log("REDUCER get activity",action.payload)
+      return {
+        ...state,
+        activities: action.payload,
+      };
+    case FILTER_BY_ACTIVITY:
+      console.log("REDUCER FILTER_BY_ACTIVITY", action.payload);
+      return {
+        ...state,
+        filterCountries: state.countries.filter((el) =>
+          el.activities.map((e) => e.name).includes(action.payload)
+        ),
+      };
 
     case SORT:
       if (action.payload === "Population Asc.") {
@@ -73,7 +76,7 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           filterCountries: state.filterCountries.sort(
             (a, b) => a.population - b.population
-          ), 
+          ),
         };
       }
       if (action.payload === "Population Desc.") {
@@ -116,6 +119,11 @@ export default function rootReducer(state = initialState, action) {
       }
       return {
         ...state,
+      };
+    case CLEAN:
+      return {
+        ...state,
+        countryDetail: [],
       };
     default:
       return state;

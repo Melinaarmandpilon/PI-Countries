@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountryDetail } from "./../../actions/index";
+import { clean, getCountryDetail } from "./../../actions/index";
 import { ButtonHome } from "..";
 import { numberWithCommas } from "../utils";
 import styles from "./CountryDetail.module.css";
@@ -21,6 +21,7 @@ export default function CountryDetail(props) {
   useEffect(() => {
     // console.log(" se monta componete");
     dispatch(getCountryDetail(id));
+    return dispatch(clean());
   }, [dispatch, id]);
 
   return (
@@ -28,7 +29,7 @@ export default function CountryDetail(props) {
       <div className={styles.section}>
         <h3>Data Country</h3>
         <img src={countryDetail.flag} alt="img not found" />
-        <div></div>
+        {/* <div></div> */}
         <p>Name: {countryDetail.name}</p>
         <p>Continent: {countryDetail.continent}</p>
         <p>Code: {countryDetail.id}</p>

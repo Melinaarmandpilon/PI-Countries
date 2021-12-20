@@ -1,4 +1,5 @@
 import {
+  CLEAN,
   FILTER_BY_ACTIVITY,
   FILTER_BY_CONTINENT,
   GET_ACTIVITIES,
@@ -109,4 +110,10 @@ export function setCurrentPage(payload) {
     type: PAGINATE,
     payload,
   };
+}
+
+export function clean (){
+  return{
+    type:CLEAN,
+  }
 }
