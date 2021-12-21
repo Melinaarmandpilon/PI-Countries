@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "redux-devtools-extension": "^2.13.9"
-  }
-}
