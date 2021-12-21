@@ -20,8 +20,8 @@ export function validate(input) {
     if(!input.season){
       error.season="Select at least one season"
     }
-    if(input.countries.length<=0){
-      error.countries="Select at least one country"
+    if(input.countryId.length<=0){
+      error.countryId="Select at least one country"
     }
     // console.log("error en validate:", error);
     return error;

@@ -4,6 +4,7 @@ import { postActivity } from "../../actions";
 import { ButtonHome, validate } from "../index";
 import styles from "./AddActivity.module.css";
 import s from "../Button/ButtonHome.module.css";
+import icon from "../../img/icon-cross.svg";
 
 export default function AddActivity() {
   const countries = useSelector((state) => state.countries);
@@ -15,24 +16,34 @@ export default function AddActivity() {
     difficulty: "",
     duration: "",
     season: "",
-    countries: [],
+    countryId: [],
   });
+
+  const handleDelete = ev => {
+    // console.log("ev",ev)
+    setInput({
+        ...input,
+        countryId: input.countryId.filter(country => country !== ev)
+    });
+};
 
   const [error, setError] = useState("");
 
   const handleChange = (evento) => {
     setError(
-      validate({
-        ...input,
-        [evento.target.name]: evento.target.value,
-      })
+      validate(
+        {
+          ...input,
+          [evento.target.name]: evento.target.value,
+        }
+      )
     );
 
-    if (evento.target.name === "countries") {
+    if (evento.target.name === "countryId") {
       //Condición para que pueda ir agregando varios paises
       setInput({
         ...input,
-        [evento.target.name]: [...input.countries, evento.target.value],
+        [evento.target.name]: [...new Set([...input.countryId, evento.target.value])],
       });
     } else {
       setInput({
@@ -51,11 +62,12 @@ export default function AddActivity() {
       difficulty: "",
       duration: "",
       season: "",
-      countries: [],
-    })
+      countryid: [],
+    });
   };
 
- 
+  
+
   return (
     <div className={styles.container}>
       <form className={styles.form}>
@@ -79,8 +91,7 @@ export default function AddActivity() {
             <select
               className={error.difficulty && styles.danger}
               onChange={handleChange}
-              name="difficulty"
-            >
+              name="difficulty">
               {["Select", 1, 2, 3, 4, 5].map((el) => (
                 <option key={el} value={el}>
                   {el}
@@ -108,15 +119,12 @@ export default function AddActivity() {
             <select
               className={error.season && styles.danger}
               onChange={handleChange}
-              name="season"
-            >
-              {["Select", "Summer", "Autumn", "Winter", "Spring"].map(
-                (el) => (
-                  <option key={el} value={el}>
-                    {el}
-                  </option>
-                )
-              )}
+              name="season">
+              {["Select", "Summer", "Autumn", "Winter", "Spring"].map((el) => (
+                <option key={el} value={el}>
+                  {el}
+                </option>
+              ))}
             </select>
             {error.season && <p className={styles.danger}>{error.season}</p>}
           </div>
@@ -125,29 +133,35 @@ export default function AddActivity() {
             <label>Select Countries: </label>
             <div>
               <select
-                className={error.countries && styles.danger}
-                name="countries"
-                onChange={handleChange}
-              >
+                className={error.countryId && styles.danger}
+                name="countryId"
+                onChange={handleChange}>
                 <option name="Select">Select</option>
                 {countries.map((country) => (
                   <option
                     key={country.id}
                     name={country.name}
-                    value={country.id}
-                  >
+                    value={country.id}>
                     {country.name}
                   </option>
                 ))}
               </select>
-             
-              <div>{input.countries.join(" ")}</div>
-              {error.countries && (
-                <p className={styles.danger}>{error.countries}</p>
-              )}
+
+              {/* <div>{input.countries.join(" ")}</div> */}
+              <div>
+                {input.countryId.map((country) => (
+                  <div key={country} className={styles.delete}>
+                    <h5>{country}</h5>
+                    <button  className={styles.btnDelete} onClick={()=> handleDelete(country)}><img src={icon} alt="delete" /></button>
+                  </div>
+                ))}
+              </div>
             </div>
+            {error.countryId && (
+              <p className={styles.danger}>{error.countryId}</p>
+            )}
           </div>
-          
+
           <div className={styles.btns}>
             <ButtonHome />
             <button
@@ -157,9 +171,8 @@ export default function AddActivity() {
                 !input.name ||
                 error.difficulty ||
                 error.season ||
-                error.countries
-              }
-            >
+                error.countryId
+              }>
               Add Activity
             </button>
           </div>
@@ -168,7 +181,3 @@ export default function AddActivity() {
     </div>
   );
 }
-
-
-
-

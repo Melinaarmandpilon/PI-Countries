@@ -71,7 +71,30 @@
   }
  
   .btns{
-    display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between
+}
+/* .deleteContainer{
+  
+} */
+
+.delete {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--amarillo);
+
+}
+
+.btnDelete  {
+  background-color: transparent;
+  border:none;
+  margin-right: 1.5rem;
+}
+.btnDelete img {
+  width: 0.9rem;
+  height: 0.9rem;
+  cursor: pointer;
+  justify-content: center;
 }
