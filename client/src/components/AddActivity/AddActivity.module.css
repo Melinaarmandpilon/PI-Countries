@@ -80,17 +80,21 @@
 } */
 
 .delete {
-  margin: 20px;
+  margin: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid var(--amarillo);
-
+  height: 44px;
+  align-items: center;
+}
+ h5 {
+  margin-left: 1.5rem;
 }
 
 .btnDelete  {
   background-color: transparent;
   border:none;
-  margin-right: 1.5rem;
+  margin: 1.5rem;
 }
 .btnDelete img {
   width: 0.9rem;
