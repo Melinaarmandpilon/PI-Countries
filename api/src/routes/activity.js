@@ -12,7 +12,7 @@ router.get("/",async (req,res)=>{
 
 router.post("/",async (req,res, next)=>{
     try {
-        const {name,difficulty,duration,season,countries}=req.body;
+        const {name,difficulty,duration,season,countryId}=req.body;
 
         const newActivity=  await Activity.create({
             name,
@@ -21,7 +21,7 @@ router.post("/",async (req,res, next)=>{
             season
         })
        
-        await newActivity.addCountry(countries) //countries es el id del pais
+        await newActivity.addCountry(countryId) //countries es el id del pais
         
         res.send("Tourist activity added successfully")
 

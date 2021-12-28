@@ -62,7 +62,7 @@ export default function AddActivity() {
       difficulty: "",
       duration: "",
       season: "",
-      countryid: [],
+      countryId: [],
     });
   };
 
