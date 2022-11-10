@@ -10,8 +10,6 @@
 }
 
 .form {
-  /* font-size: 0.9em; */
-  /* font-weight: 700; */
   height: min-content;
   border-radius: 1em;
   width: 600px;
@@ -54,7 +52,6 @@
   }
   
   .form select{
-    /* background: #000!important; */
     border: 1px solid var(--amarillo);
     padding: 8px 10px;
     font-size: 1.2em;
